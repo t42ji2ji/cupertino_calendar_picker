@@ -32,6 +32,9 @@ class CupertinoCalendarPicker extends StatefulWidget {
     required this.actions,
     this.markedDayPredicate,
     this.markerColor,
+    this.draftMarkedDayPredicate,
+    this.draftMarkerColor,
+    this.usePawForCurrentDay = false,
     super.key,
   });
 
@@ -59,6 +62,9 @@ class CupertinoCalendarPicker extends StatefulWidget {
   final List<CupertinoCalendarAction>? actions;
   final MarkedDayPredicate? markedDayPredicate;
   final Color? markerColor;
+  final MarkedDayPredicate? draftMarkedDayPredicate;
+  final Color? draftMarkerColor;
+  final bool usePawForCurrentDay;
 
   @override
   CupertinoCalendarPickerState createState() => CupertinoCalendarPickerState();
@@ -295,6 +301,9 @@ class CupertinoCalendarPickerState extends State<CupertinoCalendarPicker> {
                     firstDayOfWeekIndex: widget.firstDayOfWeekIndex,
                     markedDayPredicate: widget.markedDayPredicate,
                     markerColor: widget.markerColor,
+                    draftMarkedDayPredicate: widget.draftMarkedDayPredicate,
+                    draftMarkerColor: widget.draftMarkerColor,
+                    usePawForCurrentDay: widget.usePawForCurrentDay,
                   ),
                 ],
               ),

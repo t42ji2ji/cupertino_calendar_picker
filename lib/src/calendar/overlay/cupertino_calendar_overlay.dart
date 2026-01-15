@@ -35,6 +35,9 @@ class CupertinoCalendarOverlay extends StatefulWidget {
     this.timeLabel,
     this.markedDayPredicate,
     this.markerColor,
+    this.draftMarkedDayPredicate,
+    this.draftMarkerColor,
+    this.usePawForCurrentDay = false,
   });
 
   final double horizontalSpacing;
@@ -64,6 +67,9 @@ class CupertinoCalendarOverlay extends StatefulWidget {
   final List<CupertinoCalendarAction>? actions;
   final MarkedDayPredicate? markedDayPredicate;
   final Color? markerColor;
+  final MarkedDayPredicate? draftMarkedDayPredicate;
+  final Color? draftMarkerColor;
+  final bool usePawForCurrentDay;
 
   @override
   State<CupertinoCalendarOverlay> createState() =>
@@ -155,6 +161,9 @@ class _CupertinoCalendarOverlayState extends State<CupertinoCalendarOverlay> {
         actions: widget.actions,
         markedDayPredicate: widget.markedDayPredicate,
         markerColor: widget.markerColor,
+        draftMarkedDayPredicate: widget.draftMarkedDayPredicate,
+        draftMarkerColor: widget.draftMarkerColor,
+        usePawForCurrentDay: widget.usePawForCurrentDay,
       ),
     );
   }

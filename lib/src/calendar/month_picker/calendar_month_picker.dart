@@ -29,6 +29,9 @@ class CalendarMonthPicker extends StatefulWidget {
     required this.selectableDayPredicate,
     this.markedDayPredicate,
     this.markerColor,
+    this.draftMarkedDayPredicate,
+    this.draftMarkerColor,
+    this.usePawForCurrentDay = false,
     super.key,
   })  : minimumDate = DateUtils.dateOnly(minimumDate),
         maximumDate = DateUtils.dateOnly(maximumDate),
@@ -82,6 +85,15 @@ class CalendarMonthPicker extends StatefulWidget {
 
   /// The color of the marker dot.
   final Color? markerColor;
+
+  /// A predicate that determines whether a day should have a draft marker (hollow).
+  final MarkedDayPredicate? draftMarkedDayPredicate;
+
+  /// The color of the draft marker dot.
+  final Color? draftMarkerColor;
+
+  /// Whether to use a paw print instead of a circle for the current day indicator.
+  final bool usePawForCurrentDay;
 
   @override
   State<CalendarMonthPicker> createState() => CalendarMonthPickerState();
@@ -178,6 +190,8 @@ class CalendarMonthPickerState extends State<CalendarMonthPicker> {
         }
 
         final bool hasMarker = widget.markedDayPredicate?.call(date) ?? false;
+        final bool hasDraftMarker =
+            widget.draftMarkedDayPredicate?.call(date) ?? false;
 
         final Widget dayWidget = CalendarMonthPickerDay(
           dayDate: date,
@@ -186,6 +200,10 @@ class CalendarMonthPickerState extends State<CalendarMonthPicker> {
           backgroundCircleSize: backgroundCircleSize,
           hasMarker: hasMarker,
           markerColor: widget.markerColor,
+          hasDraftMarker: hasDraftMarker,
+          draftMarkerColor: widget.draftMarkerColor,
+          usePawForCurrentDay:
+              isCurrentDay && widget.usePawForCurrentDay,
         );
         yield dayWidget;
       }

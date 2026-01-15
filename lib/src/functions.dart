@@ -168,6 +168,9 @@ Future<DateTime?> showCupertinoCalendarPicker(
   bool useRootNavigator = true,
   MarkedDayPredicate? markedDayPredicate,
   Color? markerColor,
+  MarkedDayPredicate? draftMarkedDayPredicate,
+  Color? draftMarkerColor,
+  bool usePawForCurrentDay = false,
 }) {
   return showGeneralDialog<DateTime?>(
     context: context,
@@ -217,6 +220,9 @@ Future<DateTime?> showCupertinoCalendarPicker(
         actions: actions,
         markedDayPredicate: markedDayPredicate,
         markerColor: markerColor,
+        draftMarkedDayPredicate: draftMarkedDayPredicate,
+        draftMarkerColor: draftMarkerColor,
+        usePawForCurrentDay: usePawForCurrentDay,
       );
     },
   );
