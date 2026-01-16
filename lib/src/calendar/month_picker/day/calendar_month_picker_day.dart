@@ -185,7 +185,7 @@ class CalendarMonthPickerDayPainter extends CustomPainter {
 
     // SVG original bounds: roughly 540x510, centered around (28, 1105)
     // Scale to fit backgroundCircleSize (larger divisor = smaller paw)
-    final double scale = backgroundCircleSize / 800;
+    final double scale = backgroundCircleSize / 700;
 
     // Translate to center the paw at offset
     canvas.save();
